@@ -6,7 +6,7 @@ import { type } from "@testing-library/user-event/dist/type";
 
 const mapContainerStyle = {
     width: "100%",
-    height: "500px",
+    height: "100%",
 };
 
 const center = {
