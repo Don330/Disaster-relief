@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { GoogleMap, LoadScript, Marker, InfoWindow } from "@react-google-maps/api";
 import {collection, doc, getDocs} from "firebase/firestore";
 import {db} from "./firebase";
+import { type } from "@testing-library/user-event/dist/type";
 
 import changeTHISimage from "./asset/cat_stare.png"
 
