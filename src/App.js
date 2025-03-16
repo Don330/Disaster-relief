@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import MapComponent from "./MapComponent"; // Import Map
 import Events from "./Events";
 import Form from "./form"; // Import the new Form component
+import AISuggestionPopup from "./AISuggestionPopup";
 
 const App = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isAIPopupOpen, setIsAIPopupOpen] = useState(false);
+  const [aiSuggestions, setAiSuggestions] = useState([]);
 
   const openForm = () => {
     setIsFormOpen(true);
@@ -12,10 +15,31 @@ const App = () => {
 
   const closeForm = () => {
     setIsFormOpen(false);
+    setAiSuggestions(generateAISuggestions);
+    setIsAIPopupOpen(true)
   };
 
+  const closeAIPopup = () => {
+    setIsAIPopupOpen(false);
+  };
+
+  const generateAISuggestions = (formData) => {
+    
+    // REPLACE WITH ACTUAL API CALL
+    const mockSuggestions = [
+      "Stay in a safe location and wait for emergency services.",
+      "Keep your phone charged and maintain communication.",
+      "If you need to evacuate, follow the designated evacuation routes.",
+      "Help is expected to arrive within 30-45 minutes based on your location."
+    ];
+    
+    setAiSuggestions(mockSuggestions);
+    setIsAIPopupOpen(true);
+  };
+
+
   const handleFormSubmit = (formData) => {
-    // database will ne involved here
+    // database will Be involved here
     console.log("test:", formData);
     closeForm();
   };
@@ -46,6 +70,12 @@ const App = () => {
         onClose={closeForm} 
         onSubmit={handleFormSubmit} 
       />
+      <AISuggestionPopup
+        isOpen={isAIPopupOpen}
+        onClose={closeAIPopup}
+        suggestions={aiSuggestions}
+      />
+
     </div>
   );
 };
