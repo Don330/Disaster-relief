@@ -53,7 +53,7 @@ const App = () => {
             className="shadow-md bg-slate-600 hover:bg-slate-800 text-white py-1 px-3 rounded text-xl font-sans"
             onClick={openForm}
           >
-            Request Help
+            Report Event
           </button>
         </div>
         <Events />

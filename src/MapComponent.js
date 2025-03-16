@@ -4,7 +4,11 @@ import {collection, doc, getDocs} from "firebase/firestore";
 import {db} from "./firebase";
 import { type } from "@testing-library/user-event/dist/type";
 
-import changeTHISimage from "./asset/cat_stare.png"
+import changeTHISimage from "./asset/location.png"
+import hurricane from"./asset/hurricane.png"
+import cyclone from"./asset/cyclone.png"
+import earthquake from"./asset/earthquake.png"
+import wildfire from"./asset/forest-fire.png"
 
 const mapContainerStyle = {
     width: "100%",
@@ -24,15 +28,19 @@ const MapComponent = () => {
     // just so that it loads...
     const disasterIcons = mapLoaded ? {
         hurricane: {
-            url: changeTHISimage, 
+            url: hurricane, 
             scaledSize: new window.google.maps.Size(40, 40),
         },
         cyclone: {
-            url: changeTHISimage,
+            url: cyclone,
             scaledSize: new window.google.maps.Size(40, 40),
         },
         earthquake: {
-            url: changeTHISimage,
+            url: earthquake,
+            scaledSize: new window.google.maps.Size(40, 40),
+        },
+        wildfire: {
+            url: wildfire,
             scaledSize: new window.google.maps.Size(40, 40),
         },
         default: {
